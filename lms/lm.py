@@ -1,9 +1,9 @@
 from dspy import LM, configure
-from dspy.adapters import ChatAdapter
+from dspy.adapters import XMLAdapter
 from dspy.clients.lm_local import LocalProvider
 from config import OPENAI_API_KEY, OLLAMA_API_KEY 
 
-configure(adapter=ChatAdapter())
+configure(adapter=XMLAdapter())
 ollama_gpt = LM(
         model='ollama_chat/gpt-oss:20b',
         api_base='http://localhost:11434',
