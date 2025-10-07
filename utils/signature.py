@@ -1,9 +1,8 @@
 import dspy
 from pathlib import Path
-from typing import Optional
 import re
 
-def with_instructions_from_file(signature: type[dspy.Signature], prompt_file: str, re_exp: Optional[str] = r"[ \t]+$") -> type[dspy.Signature]:
+def with_instructions_from_file(signature: type[dspy.Signature], prompt_file: str, re_exp: str = r"[ \t]+$") -> type[dspy.Signature]:
     prompt_path = Path(prompt_file)
 
     if not prompt_path.exists():
@@ -13,4 +12,5 @@ def with_instructions_from_file(signature: type[dspy.Signature], prompt_file: st
         content = f.read()
         clean = re.sub(re_exp, "", content, flags=re.MULTILINE)
         return signature.with_instructions(clean)
+
 
