@@ -24,12 +24,6 @@ cloud_gpt = LM(
     cache=True,
 )
 
-local_gpt = LM(
-    model=f"openai/local:gpt-oss-20b",
-    provider=LocalProvider(),
-    max_tokens=20000
-)
-
 gpt_5_nano=LM(
     model="openai/gpt-5-nano",
     api_key=OPENAI_API_KEY,
